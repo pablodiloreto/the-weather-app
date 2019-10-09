@@ -18,7 +18,7 @@ app.post('/', function (req, res) {
   let city = req.body.city;
 
   // You can change between units=metric and units=imperial
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
 
 
   // Remember change your language :-)
@@ -30,7 +30,7 @@ app.post('/', function (req, res) {
       if(weather.main == undefined){
         res.render('index', {weather: null, error: 'Ocurrió un error, por favor intentalo otra vez'});
       } else {
-        let weatherText = `Hay ${weather.main.temp} grados en ${weather.name}!`;
+        let weatherText = `Hay ${weather.main.temp} Celsius en ${weather.name}!`;
         res.render('index', {weather: weatherText, error: null});
       }
     }

@@ -30,7 +30,7 @@ app.post('/', function (req, res) {
       if(weather.main == undefined){
         res.render('index', {weather: null, error: 'Ocurrió un error, por favor intentalo otra vez'});
       } else {
-        let weatherText = `Hay ${weather.main.temp} Celsius en ${weather.name}!`;
+        let weatherText = `Hay ${weather.main.temp} grados centigrados en ${weather.name}!`;
         res.render('index', {weather: weatherText, error: null});
       }
     }

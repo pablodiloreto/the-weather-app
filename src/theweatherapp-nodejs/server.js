@@ -18,7 +18,7 @@ app.post('/', function (req, res) {
   let city = req.body.city;
 
   // You can change between units=metric and units=imperial
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
 
 
   // Remember change your language :-)

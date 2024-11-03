@@ -1,0 +1,16 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+# .github/dependabot.yml
+version: 2
+updates:
+  - package-ecosystem: "npm" # Package ecosystem, in this case npm for Node.js
+    directory: "/src" # Directory where the package.json file is located, in this case inside the src folder
+    schedule:
+      interval: "weekly" # Frequency of updates (can be daily, weekly, or monthly)
+    commit-message:
+      prefix: "deps" # Prefix for commit messages
+    open-pull-requests-limit: 10 # Maximum number of open PRs at the same time by Dependabot
+    labels:
+      - dependencies # Label to classify PRs related to dependency updates

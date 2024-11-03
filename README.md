@@ -1,16 +1,24 @@
-# Bienvenidos a TheWeatherApp
-TheWeatherApp es una aplicación desarrollada en NodeJS para consulta de condiciones meteorológicas y temperaturas de diferentes lugares del mundo. Su funcionamiento es muy sencillo: tiene una interfaz gráfica que permite escribir una ciudad del mundo y consulta al servicio openweathermap.org para poder devolver datos.
+# Welcome to TheWeatherApp
+TheWeatherApp is an application developed in Node.js for checking weather conditions and temperatures for different places around the world. It works simply: it has a graphical interface where you can enter a city name, and it queries the openweathermap.org service to retrieve weather data.
 
-## ¿Cómo ejecutar esta app?
-Todo depende de la solución que elijas (ver carpeta src). Por el momento existen las siguientes:
+## About this App
+* Licensed under [MIT](https://opensource.org/licenses/MIT).
+* Project originally sourced from [this repo](https://github.com/bmorelli25/simple-nodejs-weather-app) on GitHub.
+* Initial adaptations and contributions made by [Pablo Di Loreto](https://pablodiloreto.com/).
 
-### NodeJS
+## How to run this app locally?
+
+Create a local `.env` file in the `/src` folder with the following content:
+
 ```
-node server.js
-// Por default ingresar al navegador y visitar: localhost:8080
+API_KEY=YOUR_API_KEY // Obtain from openweathermap.org 
+BASE_URL=http://api.openweathermap.org/data/2.5/weather 
+PORT=8080 // Port where your app will run locally 
+LANGUAGE=COMPLETE // Response language for openweathermap: es or en, for example
 ```
+When you’re ready, run:
 
-## Sobre esta App
-* Licencia basada en [MIT](https://opensource.org/licenses/MIT).
-* Proyecto originalmente extraido de [este repo](https://github.com/bmorelli25/simple-nodejs-weather-app) en GitHub.
-* Adaptaciones y contribuciones iniciales realizadas por [Pablo Di Loreto](https://pablodiloreto.github.io/).
+```
+node start // By default, open a browser and visit: localhost:8080
+node dev // By default, open a browser and visit: localhost:8080
+```

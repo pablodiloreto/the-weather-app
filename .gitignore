@@ -1,0 +1,4 @@
+# .gitignore
+
+# Ignorar archivos .env en la carpeta src
+/src/*.env

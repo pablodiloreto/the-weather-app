@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>¿Cuál es la temperatura en la ciudad que elegís?</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-    
-    <div class="container">
-      <h1 align="center">Temperaturas del Mundo</h1>
-      <div align="center"><strong>Ingresá una ciudad para conocer la temperatura actual</strong></div>
-      <fieldset>
-        <form action="/" method="post">
-          <input name="city" type="text" class="ghost-input" placeholder="Ingresa una Ciudad" required>
-          <input type="submit" class="ghost-button" value="Obtener temperatura">
-        </form>
-        <% if(weather !== null){ %>
-          <p><%= weather %></p>
-        <% } %>
+<head>
+  <meta charset="utf-8">
+  <title>¿Cuál es la temperatura en la ciudad que elegís?</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div class="container">
+    <h1 align="center">Temperaturas del Mundo</h1>
+    <div align="center"><strong>Ingresá una ciudad para conocer la temperatura actual</strong></div>
+    <fieldset>
+      <form action="/" method="post">
+        <input name="city" type="text" class="ghost-input" placeholder="Ingresa una Ciudad" required>
+        <input type="submit" class="ghost-button" value="Obtener temperatura">
+      </form>
+      <% if(weather !== null){ %>
+        <p><%= weather %></p>
+      <% } %>
 
-        <% if(error !== null){ %>
-          <p><%= error %></p>
-        <% } %>
-      </fieldset>
-    </div>
-  </body>
+      <% if(error !== null){ %>
+        <p><%= error %></p>
+      <% } %>
+    </fieldset>
+  </div>
+</body>
 </html>

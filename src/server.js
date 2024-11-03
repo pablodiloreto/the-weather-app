@@ -1,40 +1,48 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const request = require('request');
-const app = express()
+const axios = require('axios');
+const config = require('./config');
 
-// Remember change this apiKey with any yours from https://openweathermap.org/
-const apiKey = '6daf0997137b0a47770860c96ed23f61'; 
+const app = express();
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
-app.get('/', function (req, res) {
-  res.render('index', {weather: null, error: null});
-})
+// Función para obtener datos de OpenWeather
+async function getWeather(city) {
+  try {
+    const response = await axios.get(config.baseUrl, {
+      params: {
+        q: city,
+        units: 'metric',
+        appid: config.apiKey,
+        lang: config.language,
+      },
+    });
+    const { temp } = response.data.main;
+    const { name } = response.data;
+    return `Hay ${temp} grados centígrados en ${name}!`;
+  } catch (error) {
+    return null;
+  }
+}
 
-app.post('/', function (req, res) {
-  let city = req.body.city;
+app.get('/', (req, res) => {
+  res.render('index', { weather: null, error: null });
+});
 
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+app.post('/', async (req, res) => {
+  const city = req.body.city;
+  const weather = await getWeather(city);
+  
+  if (weather) {
+    res.render('index', { weather, error: null });
+  } else {
+    res.render('index', { weather: null, error: 'Ocurrió un error, por favor intentalo otra vez' });
+  }
+});
 
-  // Remember change your language :-)
-  request(url, function (err, response, body) {
-    if(err){
-      res.render('index', {weather: null, error: 'Ocurrió un error, por favor intentalo otra vez'});
-    } else {
-      let weather = JSON.parse(body)
-      if(weather.main == undefined){
-        res.render('index', {weather: null, error: 'Ocurrió un error, por favor intentalo otra vez'});
-      } else {
-        let weatherText = `Hay ${weather.main.temp} grados centigrados en ${weather.name}!`;
-        res.render('index', {weather: weatherText, error: null});
-      }
-    }
-  });
-})
-
-app.listen(8080, function () {
-  console.log('Example app listening on port 8080!!!!')
-})
+app.listen(config.port, () => {
+  console.log(`Example app listening on port ${config.port}`);
+});

@@ -1,2 +1,0 @@
-# Bienvenidos a TheWeatherApp
-TheWeatherApp es una aplicación desarrollada en NodeJS para consulta de condiciones meteorológicas y temperaturas de diferentes lugares del mundo. Su funcionamiento es muy sencillo: tiene una interfaz gráfica que permite escribir una ciudad del mundo y consulta al servicio openweathermap.org para poder devolver datos.

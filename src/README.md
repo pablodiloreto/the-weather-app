@@ -1,11 +1,4 @@
-# Bienvenidos a TheWeatherApp en Node.js
-Esta es una simple app desarrollada en Node.js para consulta de temperatura y condiciones climatológicas.
+# Welcome to TheWeatherApp in Node.js
+This is a simple app developed in Node.js for checking temperature and weather conditions.
 
-* Ver la **[Demo en Vivo](https://simple-nodejs-weather-app-irhhpddsku.now.sh/)**
-
-## ¿Cómo ejecutar esta app?
-
-```
-node server.js
-// Por default ingresar al navegador y visitar: localhost:8080
-```
+Please review the instructions in the [Root README](../README.md)
